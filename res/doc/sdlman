@@ -1,0 +1,21 @@
+SDLMAN
+
+A document reader written in C with SDL for MiyooCFW or like custorm firmware.
+
+FILE MANAGER
+
+Up/Down to move cursor line by line.
+
+Right/Left to move cursor page by page.
+
+[A] to open folder/file.
+
+[B] to go to parent folder.
+
+READING
+
+Up/Down to scroll line by line.
+
+Right/Left to scroll page by page.
+
+[B] to go back to file manager.
