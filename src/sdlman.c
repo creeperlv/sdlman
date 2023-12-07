@@ -1,4 +1,5 @@
 #include "sdlman.h"
+
 FILE *__sdl_LogFile;
 
 TTF_Font *font = NULL;

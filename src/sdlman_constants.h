@@ -17,27 +17,29 @@
 #define SCREEN_READING 0x01
 #define DEFAULT_LIEN_COUNT 1
 
-#ifdef KEYMAP_01
+#if defined(KEYMAP_01)
 // RetroFW
 #define KEY_EXIT SDLK_ESCAPE
 #define KEY_GOBACK SDLK_LALT
 #define KEY_SELECT_0 SDLK_LCTRL
 #define KEY_SELECT_1 SDLK_RETURN
+#define KEYMAP "Keymap RetroFW"
 
-#elif KEYMAP_02
+#elif defined(KEYMAP_02)
 // PC
 #define KEY_EXIT SDLK_ESCAPE
 #define KEY_GOBACK SDLK_BACKSPACE
 #define KEY_SELECT_0 SDLK_LCTRL
 #define KEY_SELECT_1 SDLK_RETURN
-
+#define KEYMAP "Keymap PC"
 #else
+//#elif defined(KEYMAP_00)
 // Miyoo
 #define KEY_EXIT SDLK_RCTRL
 #define KEY_GOBACK SDLK_LCTRL
 #define KEY_SELECT_0 SDLK_LALT
 #define KEY_SELECT_1 SDLK_RETURN
+#define KEYMAP "Keymap Miyoo"
 
 #endif
-
 #endif

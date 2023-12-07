@@ -3,6 +3,7 @@
 int main() {
   SetLogFile(stdout);
   WriteLine("Init");
+  Log("KeyMap:%s\n", KEYMAP);
   InitSDL();
   InitBuffer();
   InitASCII();

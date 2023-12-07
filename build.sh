@@ -2,9 +2,11 @@ if [ -z "$CC" ]
 then
 	CC=gcc
 fi
-if [ -z "$KEYMAP" ]
+if [ -z "$KEY" ]
 then
-	KEYMAP=KEYMAP00
+	KEY=KEYMAP_00
 fi
-$CC -D$KEYMAP=1 ./src/*.c -o ./bin/sdlman -lSDL_image  -ggdb -lSDL -lSDL_ttf -lm
+COPT="-D $KEY"
+$CC -O3 $COPT ./src/*.c -o ./bin/sdlman -lSDL_image  -ggdb -lSDL -lSDL_ttf -lm
+echo "$CC $COPT ./src/*.c -o ./bin/sdlman -lSDL_image  -ggdb -lSDL -lSDL_ttf -lm"
 cp -r -p ./res/* ./bin/
