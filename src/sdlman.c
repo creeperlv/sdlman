@@ -7,8 +7,8 @@ TTF_Font *font_Large;
 SDL_Surface *screen = NULL;
 SDL_Event event;
 
-SDL_Surface *ASCII_FONT[128];
-SDL_Surface *ASCII_FONT_LARGE[128];
+SDL_Surface *ASCII_FONT[256];
+SDL_Surface *ASCII_FONT_LARGE[256];
 ManBuffer buffer;
 DIR *CurrentDir;
 FILE *OpendFile;
@@ -156,7 +156,7 @@ void InitASCII() {
   char *str = malloc(sizeof(char) * 2);
   str[1] = 0;
   printf("%s\n", "Init ASCII");
-  for (int i = 0; i < 128; i++) {
+  for (int i = 0; i < 256; i++) {
     str[0] = i;
     ASCII_FONT[i] = TTF_RenderText_Blended(font, str, c);
     ASCII_FONT_LARGE[i] = TTF_RenderText_Blended(font_Large, str, c);
@@ -395,6 +395,10 @@ void DrawBuffer(int X, int Y) {
     for (int x = 0; x < BufferWidth; x++) {
       char ch = buffer->buffer[y * BufferWidth + x];
       SDL_Surface *char_surf = ASCII_FONT[(int)ch];
+      if (char_surf == NULL) {
+        char_surf = ASCII_FONT[(int)' '];
+        continue;
+      }
       rect.w = char_surf->w;
       rect.h = char_surf->h;
       if (ch != ' ')
